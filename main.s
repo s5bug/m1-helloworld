@@ -1,5 +1,5 @@
 ; libSystem.write
-;     (fd : int/i32 [x0], buf : *u8 [x1], count : size_t/u64 [x2])
+;     (fd : int/i32 {x0}, buf : *void/*u8 {x1}, count : size_t/u64 {x2})
 ;     -> (written : ssize_t/i64)
 .extern _write
 ; libSystem.exit
@@ -26,6 +26,6 @@ _main:
     bl _exit
 
 .data
-; [14]u8 hello_world_str
+; hello_world_str : [14]u8
 hello_world_str:
     .ascii "Hello, world!\n"
